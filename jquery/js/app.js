@@ -25,7 +25,27 @@ $(document).ready(function(){
   //4 - Ajouter un ligne de champ d'adresse lorsque l'on clique sur le bouton "Ajouter un autre ligne d'adresse"
   $(".btn.btn-default.add").click(function(){
     console.log("add one address line ");
-    $(this).parent().after(" <div class='type'> <span class='text-note'></span> <input type='text'/> </div>");
+    $(this).parent().after(" <div class='type'> <span class='text-note'></span> <input type='text'/> </div>")
+  });
+
+  //5 - Au clic sur le bouton de validation, supprimer tous les éléments de la page, et afficher un message de remerciement.
+  $(".btn.btn-primary.btn-large.btn-block").click(function(){
+    console.log("clicked Validation button ");
+    $(".row.typography-row.main").remove();
+    $(".stick-right").remove();
+    $("small").after("<span class='text-center'>Remerciment !</span>")
+  });
+
+  //6 - Actualiser le prix en fonction des éléments choisis grâce à l'attribut data-price
+  $(".btn.btn-success.done").click(function(){
+    var pricePizzaType = 0, priceNbParts = 0, pricePate= 0, priceExtra=0;
+
+    $(".type.nb-parts").data('prix');
+      $("div").data('prix');
+      $("div").data('prix');
+
+    var priceTotal = pricePizzaType + priceNbParts + pricePate +  priceExtra;
+    $(".tile").children("p").html("<p>"+ priceTotal + " €</p>")
 
   });
 
